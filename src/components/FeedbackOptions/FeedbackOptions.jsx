@@ -1,17 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Button, DivButton } from "./FeedbackOptions.styled"
-
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Button, DivButton } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <DivButton>
-    {options.map(option => (
+    {Object.keys(options).map(option => (
       <Button
         key={option}
         name={option}
         type="button"
-        onClick={onLeaveFeedback}
+        onClick={() => onLeaveFeedback(option)}
       >
         {option}
       </Button>
@@ -19,7 +17,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   </DivButton>
 );
 
-  FeedbackOptions.propTypes = {
-     options: PropTypes.array.isRequired,
+FeedbackOptions.propTypes = {
+  options: PropTypes.object.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
-  }
+};
