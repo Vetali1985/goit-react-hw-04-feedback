@@ -4,7 +4,7 @@ import { Button, DivButton } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <DivButton>
-    {Object.keys(options).map(option => (
+    {options.map(option => (
       <Button
         key={option}
         name={option}
@@ -18,6 +18,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
